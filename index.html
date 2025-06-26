@@ -161,40 +161,50 @@
     </div>
   </section>
 
-  <section id="confirmacion" class="py-5 text-center bg-light">
-  <div class="container">
-    <h2 class="mb-4">Confirma tu asistencia</h2>
-    <p class="mb-4">Por favor ingresa tu nombre para confirmar por WhatsApp</p>
+  <section id="confirmacion" class="py-5 text-center text-white" style="
+    background-image: url('img/what.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  ">
+    <div class="container d-flex justify-content-center">
+      <div style="
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 2rem 4rem;
+        border-radius: 20px;
+        max-width: 700px;
+        width: 100%;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      ">
+        <h2 class="mb-4">Confirma tu asistencia</h2>
+        <p class="mb-4">Por favor ingresa tu nombre para confirmar por WhatsApp</p>
 
-    <div class="row justify-content-center">
-      <div class="col-md-6">
         <form id="confirmForm" onsubmit="return enviarConfirmacion()">
           <div class="mb-3">
             <input type="text" id="nombreInvitado" class="form-control" placeholder="Tu nombre" required>
           </div>
-          <button type="submit" class="btn btn-success">
-            Confirmar por WhatsApp
-            <i class="bi bi-whatsapp ms-1"></i>
+          <button type="submit" class="btn btn-light text-success fw-bold">
+            <i class="bi bi-whatsapp me-1"></i> Confirmar por WhatsApp
           </button>
         </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  function enviarConfirmacion() {
-    const nombre = document.getElementById("nombreInvitado").value.trim();
-    if (!nombre) return false;
 
-    const mensaje = `¡Hola! Soy ${nombre} y confirmo mi asistencia al bautizo de Mia Aseret 🙌✨`;
-    const numero = "525548066883";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+  <script>
+    function enviarConfirmacion() {
+      const nombre = document.getElementById("nombreInvitado").value.trim();
+      if (!nombre) return false;
 
-    window.open(url, "_blank");
-    return false; // Evita el envío real del formulario
-  }
-</script>
+      const mensaje = `¡Hola! Soy ${nombre} y confirmo mi asistencia al bautizo de Mia Aseret 🙌✨`;
+      const numero = "5217771234567"; // <-- Reemplaza con tu número real
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+      window.open(url, "_blank");
+      return false;
+    }
+  </script>
 
   <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
