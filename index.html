@@ -161,6 +161,41 @@
     </div>
   </section>
 
+  <section id="confirmacion" class="py-5 text-center bg-light">
+  <div class="container">
+    <h2 class="mb-4">Confirma tu asistencia</h2>
+    <p class="mb-4">Por favor ingresa tu nombre para confirmar por WhatsApp</p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="confirmForm" onsubmit="return enviarConfirmacion()">
+          <div class="mb-3">
+            <input type="text" id="nombreInvitado" class="form-control" placeholder="Tu nombre" required>
+          </div>
+          <button type="submit" class="btn btn-success">
+            Confirmar por WhatsApp
+            <i class="bi bi-whatsapp ms-1"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function enviarConfirmacion() {
+    const nombre = document.getElementById("nombreInvitado").value.trim();
+    if (!nombre) return false;
+
+    const mensaje = `¡Hola! Soy ${nombre} y confirmo mi asistencia al bautizo de Mia Aseret 🙌✨`;
+    const numero = "525548066883";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+    return false; // Evita el envío real del formulario
+  }
+</script>
+
   <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
